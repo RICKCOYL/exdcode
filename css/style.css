@@ -1,0 +1,372 @@
+html {
+    font-size: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    color: #4F6F52;
+    background: #D2E3C8;
+    
+}
+
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ font-family: Lato, sans-serif;
+}
+
+/* Logo */
+
+.nav {
+  display: flex;
+  gap: 30px;
+  background-color: #e3e7e1;
+  padding: 20px 80px;
+  border-radius: 30px;
+  list-style: none; /* removes dots from a list */
+}
+
+.nav li:hover {
+    /* color darker */
+    color: #a0c9a4;
+    cursor: pointer;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #4F6F52;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: center; /* ändrad från space-between */
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #F5F4EB;
+  color: #4F6F52;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+
+/* Hero-sektion */
+
+
+.hero {
+    color: #4F6F52;
+    display: flex;
+    align-items: center;
+    min-height:90vh;
+    border-bottom: #9fbba2 solid 1px;
+    font-family: 'Playfair Display', serif;
+    margin-top: 80px;
+    padding-bottom: 40px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    max-width: 80%;
+    margin-bottom: 20px;
+    font-family: Lato, sans-serif;
+    text-align: left;
+    line-height: 1.0;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    max-width: 80%;
+    text-align: left;
+    margin: 0 auto;
+    margin: 1.5rem;
+    font-family: Lato, sans-serif;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: left;
+}
+
+.hero-image {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10%;
+    display: block;
+    margin: 0 auto;
+
+}
+
+
+/* Projekt-sektion */
+
+#latest-projekt-heading {
+    padding-bottom: 100px;
+    margin-top: 10px;
+    font-size: 2rem;
+}
+
+.projekt-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 40px 20px;
+  gap: 30px; 
+  align-items: stretch;
+}
+
+h1{ 
+    color: #4F6F52; 
+    text-align: center; 
+    margin-bottom: 15px; 
+    font-family: 'Playfair Display', serif;
+}
+ 
+
+/* Själva kortet */
+
+.projekt-kort {
+  background: transparent;
+  transition: 0.3s;
+  cursor: pointer;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.projekt-item {
+  display: flex;
+  position: relative;
+}
+.projekt-kort img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 0;
+}
+
+.projekt-kort:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px #0003;
+  border-color: #eb827a;
+}
+
+.projekt{
+    text-align: center;
+}
+
+.projekt-info {
+    position: absolute;
+    inset: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    color: #27402a;
+    background: #fff;
+    backdrop-filter: blur(12px);
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 2;
+}
+
+.projekt-item:hover .projekt-info {
+    opacity: 1;
+    visibility: visible;
+}
+
+.projekt-info h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+}
+
+.projekt-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+
+/* Footer */
+
+footer {
+    margin-top: 160px;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #EB5E55;
+    color: #4F6F52;
+    font-family: Lato, sans-serif;
+}
+.social-links {
+    display: flex;
+    gap: 15px;
+    background-color: #eb827a;
+    padding: 8px 16px;
+    font-family: Lato, sans-serif;
+    border-radius: 30px; /* rund meny som headern */
+}
+
+.social-links a {
+    color: #4F6F52;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 20px;
+    transition: 0.2s ease;
+    font-family: Lato, sans-serif;
+}
+
+.social-links a:hover {
+    background-color: #9fbba2;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        align-items: center;
+        gap: 24px;
+        margin-top: 100px;
+        min-height: auto;
+        justify-content: center;
+        padding-top: 10px;
+    }
+ 
+    .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: #e3e7e1;
+        padding: 20px;
+        border-radius: 0 0 30px 30px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+        gap: 20px;
+    }
+
+    .nav.open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav li {
+        font-size: 0.9rem;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        margin-top: 16px;
+    }
+
+    .hero-buttons {
+        margin-bottom: 24px;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .hero-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .projekt-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 20px;
+    }
+
+    .nav {
+        padding: 10px 15px;
+        gap: 15px;
+    }
+
+    #latest-projekt-heading {
+        margin-top: 40px;
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column-reverse; /* this is to make the image appear below the text on mobile */
+        justify-content: center;
+    }
+
+    .hero-content{
+        display: block;
+        padding-bottom: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 0.8rem;
+    }
+
+    .hero-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .projekt-container {
+        padding: 20px 10px;
+    }
+
+    .footer-content {
+        padding: 15px;
+    }
+}
+ 

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projekt detaljer">
+    <title>Duro Sweden - Min Portfolio</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header class="about-header">
+    <nav>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About me</a></li>
+            <li><a href="./projects.html">Projects</a></li>
+            <li><a href="./resume.html" aria-disabled="true">Resume</a></li>
+            <li><a href="./contact.html" aria-disabled="true">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<main class ="main">
+<section class="about-hero">
+    <div class="about-content">
+        <h1>I am a UX-designer creating experiences that just make sense</h1>
+        <p> I’m a UX design student who enjoys creating intuitive and calm digital experiences where users feel in control. I’m drawn to simple, well-structured design, and I like making things feel clear without overcomplicating them.</p>
+            <p>I enjoy working with user insights and turning them into solutions that actually make sense in real use. For me, it’s about finding the balance between function and feeling, making something that works well but also feels easy and natural to use.</p>
+            <p>I’m currently looking for opportunities where I can keep growing as a designer, learn from others, and be part of creating thoughtful, user-centered products.</p>
+    </div>
+</section>
+
+
+<section class="contact-hero">
+    <div class="">
+      <img src="../assets/profile.jpg" alt="Personlig bild" class="hero-image">
+    </div>
+    <div class="contact-content">
+        <h1>Get in touch!</h1>
+        <p>Do you have a product idea, want to discuss a project, or need a designer? Drop me an email!</p>
+
+        <form id="contact-form">
+            <label class="contact-label">Email</label>
+            <br>
+            <input type="email" id="email" name="email" placeholder="Your email" class="contact-detail-value">
+            <br>
+            <label class="contact-label">Name</label>
+            <br>
+            <input type="text" id="name" name="name" placeholder="Your name" class="contact-detail-value">
+            <br>
+            <label class="contact-label">Message</label>
+            <br>
+            <textarea id="message" name="message" placeholder="Write your message here..." class="contact-detail-text"></textarea>
+            <br>
+            <button type="submit">Send email!</button>
+        </form>
+    </div>
+</section>
+
+
+<footer id="kontakt">
+    <div class="footer-content">
+        <p>&copy; 2026 Alessia Galambosi. Alla rättigheter förbehållna.</p>
+        <div class="social-links">
+            <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="mailto:din.mail@adress.se" title="Maila mig">
+                <i class="fas fa-envelope"></i> Mail
+            </a>
+        </div>
+    </div>
+</footer>
+    <script src="../scripts/index.js"></script>
+</body>
+</html>

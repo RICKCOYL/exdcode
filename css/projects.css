@@ -1,0 +1,206 @@
+
+.project-main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 90px 20px 60px;
+}
+
+.project-hero {
+    margin-bottom: 100px;
+}
+
+
+/*header sektion*/
+.project-hero h1 {
+    font-size: 3.5rem;
+    color: #4F6F52;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    font-family: Playfair Display, serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+.project-intro {
+    font-size: 1.05rem;
+    color: #5a7860;
+    line-height: 1.8;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.project-content {
+    margin-bottom: 80px;
+}
+
+/* .project-section {
+    margin-bottom: 48px;
+} */
+
+.project-section h2 {
+    font-size: 1.8rem;
+    color: #4F6F52;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.project-section p {
+    font-size: 1rem;
+    color: #5a7860;
+    line-height: 1.8;
+    margin-bottom: 50px;
+    max-width: 800px;
+}
+
+.project-section h3 {
+    font-size: 1.2rem;
+    color: #4F6F52;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+
+/* Project Images Duro */
+.duroProject {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.duro-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/*problem and goal sektion*/
+.row1 {
+    display: flex;
+    gap: 40px;
+}
+.box1 {
+    flex: 1;
+}
+
+/*text i två kolumner*/
+.row {
+  display: flex;
+  gap: 40px;
+}
+
+.box {
+  flex: 1;
+}
+.box2 {
+    flex: 3;
+}
+.row2 {
+    display: flex;
+    gap: 40px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #F5F4EB;
+    color: #4F6F52;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.header nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header nav {
+        justify-content: space-between;
+    }
+
+    .project-main {
+        width: 95%;
+        padding-top: 120px;
+    }
+
+    .project-hero h1 {
+        font-size: 2rem;
+    }
+
+    .project-intro {
+        font-size: 1rem;
+        margin: 0 auto;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .project-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .project-section p {
+        font-size: 0.95rem;
+    }
+
+    .duroProject {
+        grid-template-columns: 1fr;
+    }
+
+    .row1 {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .row2 {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/*knapp kontakta mig*/
+.contact-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+/*drop me a message*/
+.contact-section {
+    background-color: #D2E3C8;
+    padding: 40px 20px;
+    border-radius: 30px;
+    text-align: center;
+    margin-top: 60px; 
+}
+.contact-section h1 {
+    font-size: 1.8rem;
+    color: #4F6F52;
+    margin-bottom: 40px;
+    font-family: Playfair Display, serif;
+    font-weight: 700;
+}
+
+
+

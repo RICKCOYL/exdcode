@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Min portfolio">
+    <title>Min Portfolio</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <nav>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i> 
+            <!-- this is an icon imported from Font Awesome -->
+        </button>
+        <ul class="nav">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About me</a></li>
+            <li><a href="./projects.html">Projects</a></li>
+            <li><a href="./resume.html" aria-disabled="true">Resume</a></li>
+            <li><a href="./contact.html" aria-disabled="true">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+<section class="hero">
+    <div class="hero-content">
+        <h1>I'm Alessia, a UX design student. Based in Sweden & Uganda</h1>
+        <div class="hero-buttons">
+            <button>My projects</button>
+            <button>Get in touch</button>
+        </div>
+    </div>  
+    
+    <div>
+        <img src="../assets/profile.jpg" alt="Personlig bild" class="hero-image">
+    </div>
+</section>
+
+<h2 id="latest-projekt-heading">My latest projects</h2>
+
+<section class="projekt-container">
+     <div class="projekt-item">
+        <article class="projekt-kort">
+            <img src="../assets/duro.png" alt="Projekt 3">
+        </article>
+        <div class="projekt-info">
+            <h3>Duro Sweden, wallpaper shopping that welcomes everyone</h3>
+            <p>Redesigned Duro Sweden’s website to meet WCAG requirements and make browsing, comparing, and choosing wallpapers faster and easier. Improved navigation clarity, readability, and key decision points across the journey..</p>
+        </div>
+    </div>
+    <div class="projekt-item">
+        <article class="projekt-kort">
+            <img src="../assets/vilke.png" alt="Projekt 3">
+        </article>
+        <div class="projekt-info">
+            <h3>Helping kids find their way, before play begins</h3>
+            <p>Designed an interactive UX that teaches children ages 5 to 10 how to navigate confidently, while keeping parents and teachers comfortable with the experience. </p>
+        </div>
+
+    </div>
+    <div class="projekt-item">
+        <article class="projekt-kort">
+            <img src="../assets/mdzuri.png" alt="Projekt 3">
+        </article>
+        <div class="projekt-info">
+            <h3>MDzuri</h3>
+        <p> A modern, responsive website design for a creative agency, focusing on visual identity, layout structure, and user experience.</p>
+        </div>
+    </div>
+</section>
+</main>
+<footer id="kontakt">
+    <div class="footer-content">
+        <p>&copy; 2026 Alessia Galambosi. Alla rättigheter förbehållna.</p>
+        <div class="social-links">
+            <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="mailto:din.mail@adress.se" title="Maila mig">
+                <i class="fas fa-envelope"></i> Mail
+            </a>
+        </div>
+    </div>
+</footer>
+    <script src="../scripts/index.js"></script>
+</body>
+</html>
