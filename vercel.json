@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.alessiaos.com" }],
+      "destination": "https://alessiaos.com/$1",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/", "destination": "/html/index.html" },
     { "source": "/(.*\\.html)", "destination": "/html/$1" }
