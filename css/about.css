@@ -1,60 +1,76 @@
-.about-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: #F5F4EB;
-    color: #4F6F52;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 10; /* overlay an element above the header */
-}
-
-.about-header nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .main {
     padding-top: 90px;
 }
 
-.about-hero {
-    color: #4F6F52;
-    display: flex;
+.about-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.95fr);
     align-items: center;
-    min-height: 20vh;
-    border-bottom: #9fbba2 solid 1px;
-    font-family: 'Playfair Display', serif;
-    padding: 90px 0 100px 0;
+    gap: 72px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 90px 7% 40px;
+    background: #201a17;
+    color: #f3e7d5;
+    min-height: 760px;
 }
 
-.about-content {
-    text-align: center;
+.about-copy {
+    max-width: 760px;
+    padding-left: 24px;
+}
+
+.about-kicker {
+    margin: 0 0 18px;
+    font-size: 1.1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f3e7d5;
+    font-weight: 700;
+}
+
+.about-copy h1 {
+    margin: 0 0 28px;
+    font-family: 'Italiana', serif;
+    font-size: clamp(3.2rem, 5vw, 7rem);
+    line-height: 0.9;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    color: #f3e7d5;
+}
+
+.about-copy p {
+    margin: 0 0 22px;
+    max-width: 700px;
+    font-size: clamp(1.05rem, 1.4vw, 1.5rem);
+    line-height: 1.7;
+    color: #f3e7d5;
+    font-family: Lato, sans-serif;
+}
+
+.about-photo-panel {
+    display: flex;
     justify-content: center;
-    width: 80%;
-    margin: 0 auto;
+    align-items: center;
+    width: 100%;
 }
-.about-content h1 {
-    text-align: center;
-    font-size: 3.0rem;
-    margin-bottom: 20px;
-    font-family: Lato, sans-serif;
-    line-height: 1.0;
-    color: #4F6F52;
+
+.about-photo-frame {
+    width: min(100%, 620px);
+    background: #3d2d23;
+    border: 1px solid rgba(243, 231, 213, 0.6);
+    border-radius: 34px;
+    padding: 14px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
 }
-.about-content p {
-    text-align: center;
-    font-size: 1rem;
-    font-family: Lato, sans-serif;
-    color: #4F6F52;
+
+.about-photo {
+    display: block;
+    width: 100%;
+    height: min(68vh, 720px);
+    max-height: 720px;
+    object-fit: cover;
+    border-radius: 26px;
 }
 
 .contact-hero {

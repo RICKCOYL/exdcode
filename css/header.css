@@ -1,0 +1,287 @@
+/* ==============================
+   SHARED HEADER + NAVIGATION
+============================== */
+
+.header,
+.about-header,
+.resume-header,
+.contact-header,
+.case-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.1rem 2.25rem 1rem;
+  background: #252B1C;
+  border: none;
+  color: #E8D9BF;
+}
+
+.brand,
+.case-logo,
+.about-logo,
+.resume-logo,
+.contact-logo,
+.footer-logo {
+  display: inline-block;
+  font-family: "Italiana", serif;
+  font-size: 2.2rem;
+  line-height: 1;
+  font-weight: 400 !important;
+  letter-spacing: -0.04em;
+  color: #E8D9BF;
+  text-decoration: none;
+}
+
+.brand:visited,
+.brand:hover,
+.brand:focus-visible,
+.case-logo:visited,
+.case-logo:hover,
+.case-logo:focus-visible,
+.about-logo:visited,
+.about-logo:hover,
+.about-logo:focus-visible,
+.resume-logo:visited,
+.resume-logo:hover,
+.resume-logo:focus-visible,
+.contact-logo:visited,
+.contact-logo:hover,
+.contact-logo:focus-visible,
+.footer-logo:visited,
+.footer-logo:hover,
+.footer-logo:focus-visible {
+  color: #E8D9BF;
+  opacity: 1;
+}
+
+.header nav,
+.about-header nav,
+.resume-header nav,
+.contact-header nav,
+.case-header nav,
+.case-header .case-nav,
+.about-page .about-nav,
+.resume-page .resume-header .nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav,
+.about-page .about-nav,
+.resume-page .resume-header .nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.3rem;
+  list-style: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+
+.nav a,
+.case-nav a,
+.about-page .about-nav a,
+.resume-page .resume-header .nav a {
+  position: relative;
+  color: #E8D9BF;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+}
+
+.nav a.is-active,
+.nav a[aria-current="page"],
+.nav a:hover,
+.case-nav a:hover,
+.about-page .about-nav a:hover,
+.about-page .about-nav a[aria-current="page"],
+.resume-page .resume-header .nav a:hover,
+.resume-page .resume-header .nav a[aria-current="page"] {
+  color: #F5EEE5;
+}
+
+.nav a.is-active::after,
+.nav a[aria-current="page"]::after,
+.nav a:hover::after,
+.case-nav a:hover::after,
+.about-page .about-nav a:hover::after,
+.about-page .about-nav a[aria-current="page"]::after,
+.resume-page .resume-header .nav a:hover::after,
+.resume-page .resume-header .nav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.7rem;
+  height: 1px;
+  background: rgba(232, 220, 197, 0.9);
+}
+
+.nav li a,
+.case-nav a {
+  color: #E8D9BF;
+  text-decoration: none;
+}
+
+.nav li:hover a {
+  color: #B5A080;
+  cursor: pointer;
+}
+
+.contact-header .contact-logo,
+.about-header .about-logo,
+.resume-page .resume-logo {
+  color: #E8D9BF !important;
+  text-decoration: none !important;
+  font-family: "Italiana", serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.contact-header .contact-logo:visited,
+.about-header .about-logo:visited,
+.resume-page .resume-logo:visited {
+  color: #E8D9BF !important;
+  text-decoration: none !important;
+}
+
+.contact-header .contact-logo:hover,
+.about-header .about-logo:hover,
+.resume-page .resume-logo:hover {
+  color: #E8D9BF !important;
+  opacity: 0.75;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #4F6F52;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.main-nav .nav a[aria-current="page"] {
+  color: #F5EEE5;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.main-nav .nav a[aria-current="page"]::after {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .about-page .about-header {
+    flex-direction: column;
+    gap: 20px;
+    padding: 22px 5%;
+  }
+
+  .about-page .about-logo {
+    position: static;
+    transform: none;
+  }
+
+  .about-page .about-nav {
+    flex-wrap: wrap;
+    gap: 15px 25px;
+  }
+}
+
+@media (max-width: 800px) {
+  .resume-page .resume-header {
+    justify-content: flex-end;
+  }
+
+  .resume-page .resume-header .nav {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header nav,
+  .about-header nav,
+  .resume-header nav,
+  .contact-header nav,
+  .case-header nav {
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .header {
+    padding-right: 1.25rem;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .nav.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(37, 43, 28, 0.98);
+    border-top: 1px solid rgba(232, 217, 191, 0.22);
+    padding: 24px 20px 28px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    z-index: 20;
+  }
+
+  .nav.open li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav.open a {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1.05rem;
+    color: #E8D9BF;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+    color: #E8D9BF;
+  }
+
+  .case-header {
+    flex-direction: column;
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .case-logo {
+    position: static;
+    transform: none;
+  }
+
+  .case-nav {
+    flex-wrap: wrap;
+    gap: 16px 24px;
+  }
+}

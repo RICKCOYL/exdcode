@@ -4,33 +4,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const nav = document.querySelector('.nav');
     const contactForm = document.getElementById('contact-form');
 
-    menuToggle.addEventListener('click', function() {
-        nav.classList.toggle('open');
-    });
-
-    // disable the resume and contact link using aria-disabled attribute
-    const resumeLink = document.querySelector('a[href="./resume.html"]'); /* this selects the resume link element so i can disable it */
-    const contactLink = document.querySelector('a[href="./contact.html"]'); /* this selects the contact link element so i can disable it */
-
-    if (resumeLink) {
-        // addEvent listen waits for an action to be performed on the element. 
-        resumeLink.addEventListener('click', function(e) {
-            if (resumeLink.getAttribute('aria-disabled') === 'true') {
-                e.preventDefault();
-                alert('Sorry, the resume page is currently unavailable.');
-            }
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', function() {
+            nav.classList.toggle('open');
         });
     }
 
-    if (contactLink) {
-        contactLink.addEventListener('click', function(e) {
-            if (contactLink.getAttribute('aria-disabled') === 'true') {
-                e.preventDefault();
-                alert('Sorry, the contact page is currently unavailable.');
-            }
+    // Project carousel functionality
+    const projectCarousel = document.querySelector('.project-carousel');
+
+    if (projectCarousel) {
+        projectCarousel.addEventListener('click', function(e) {
+            console.log('Carousel clicked', e.target);
         });
+
+        const track = projectCarousel.querySelector('.carousel-track');
+        const slides = Array.from(projectCarousel.querySelectorAll('.carousel-slide'));
+        const prevButton = projectCarousel.querySelector('.carousel-btn.prev');
+        const nextButton = projectCarousel.querySelector('.carousel-btn.next');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            currentSlide = (index + slides.length) % slides.length;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            slides.forEach((slide, slideIndex) => {
+                slide.classList.toggle('is-active', slideIndex === currentSlide);
+            });
+        }
+
+        prevButton?.addEventListener('click', () => showSlide(currentSlide - 1));
+        nextButton?.addEventListener('click', () => showSlide(currentSlide + 1));
+
+        showSlide(0);
     }
 
+    // The resume and contact pages are live now, so nothing blocks those links.
 
      // form validation
     if (contactForm) {
