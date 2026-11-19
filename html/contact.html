@@ -90,6 +90,8 @@
 
             <form id="contact-page-form" method="POST" action="/api/contact" novalidate>
 
+                <p class="form-status" id="cp-status" role="status" aria-live="polite" tabindex="-1"></p>
+
                 <div class="field form-trap" aria-hidden="true">
                     <label for="cp-website">Leave this field empty</label>
                     <input type="text" id="cp-website" name="website" tabindex="-1" autocomplete="off">
@@ -125,7 +127,6 @@
 
                 <button type="submit" class="btn btn-primary">Send message</button>
 
-                <p class="form-status" id="cp-status" role="status" aria-live="polite" tabindex="-1"></p>
             </form>
         </div>
 

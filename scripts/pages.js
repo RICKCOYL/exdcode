@@ -46,6 +46,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const status = document.getElementById('cp-status');
     const fields = Array.from(form.querySelectorAll('input, textarea'));
 
+    const query = new URLSearchParams(window.location.search);
+    if (query.get('sent') === '1') {
+        status.textContent = 'Thanks for reaching out. Your message has been sent.';
+        status.classList.add('is-success');
+        window.history.replaceState({}, document.title, window.location.pathname);
+    } else if (query.get('sent') === '0') {
+        status.textContent = 'The message could not be sent. Please try again or email me directly.';
+        status.classList.add('is-error');
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
     /* Validate a field once the user has moved on from it. Setting the
        attribute mirrors the :user-invalid styling into the accessibility
        tree, so the border and the screen reader agree. */
@@ -72,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 field.setAttribute('aria-invalid', String(!field.checkValidity()));
             });
             status.textContent = 'Check the highlighted fields and send again.';
+            status.className = 'form-status is-error';
             firstInvalid.focus();
             return;
         }
@@ -85,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         status.textContent = '';
+        status.className = 'form-status';
 
         try {
             const response = await fetch(form.action, {
@@ -102,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             status.textContent = 'Thanks for reaching out. Your message has been sent.';
+            status.classList.add('is-success');
             form.reset();
             if (submitButton) {
                 submitButton.textContent = 'Message sent';
@@ -109,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             status.textContent = error.message ||
                 'The message could not be sent. Please try again or email me directly.';
+            status.classList.add('is-error');
             if (submitButton) {
                 submitButton.disabled = false;
                 submitButton.textContent = 'Send message';

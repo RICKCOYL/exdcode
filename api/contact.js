@@ -7,23 +7,6 @@ function sendJson(res, statusCode, payload) {
     res.end(JSON.stringify(payload));
 }
 
-function sendHtml(res, statusCode, heading, message) {
-    res.status(statusCode).setHeader("Content-Type", "text/html; charset=utf-8");
-    res.end(`<!doctype html>
-<html lang="en">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${heading}</title>
-<body style="font: 16px/1.6 system-ui, sans-serif; max-width: 42rem; margin: 4rem auto; padding: 0 1rem; color: #26231f">
-  <main>
-    <h1>${heading}</h1>
-    <p>${message}</p>
-    <p><a href="/html/contact.html">Return to the contact page</a></p>
-  </main>
-</body>
-</html>`);
-}
-
 function parseBody(req) {
     if (req.body && typeof req.body === "object" && !Buffer.isBuffer(req.body)) {
         return req.body;
@@ -74,11 +57,8 @@ function respond(req, res, statusCode, payload) {
         return sendJson(res, statusCode, payload);
     }
 
-    if (statusCode >= 200 && statusCode < 300) {
-        return sendHtml(res, statusCode, "Message sent", "Thank you for reaching out. Alessia will get back to you soon.");
-    }
-
-    return sendHtml(res, statusCode, "Message not sent", "Please go back and check the form, or email Alessia directly.");
+    res.status(303).setHeader("Location", `/html/contact.html?sent=${statusCode >= 200 && statusCode < 300 ? "1" : "0"}`);
+    return res.end();
 }
 
 module.exports = async function contact(req, res) {

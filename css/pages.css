@@ -434,6 +434,28 @@ body:has(#contact-page-form) .field-error {
     font-size: 13px;
 }
 
+body:has(#contact-page-form) .form-status:empty {
+    display: none;
+}
+
+body:has(#contact-page-form) .form-status {
+    margin: 0 0 20px;
+    padding: 12px 16px;
+    border: 1px solid currentColor;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+body:has(#contact-page-form) .form-status.is-success {
+    color: #B9D6B3;
+    background: rgba(185, 214, 179, 0.08);
+}
+
+body:has(#contact-page-form) .form-status.is-error {
+    color: #F0B8A8;
+    background: rgba(240, 184, 168, 0.08);
+}
+
 body:has(#contact-page-form) .field[aria-invalid="true"] .field-error,
 body:has(#contact-page-form) .field input[aria-invalid="true"] ~ .field-error,
 body:has(#contact-page-form) .field textarea[aria-invalid="true"] ~ .field-error {
