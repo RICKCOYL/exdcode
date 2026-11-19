@@ -50,6 +50,34 @@ function isValidEmail(value) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) && value.length <= 254;
 }
 
+function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, function (character) {
+        return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            "\"": "&quot;",
+            "'": "&#39;",
+        }[character];
+    });
+}
+
+function sendPage(res, statusCode, payload) {
+    const heading = payload.ok ? "Message sent" : "Message not sent";
+    const message = payload.ok
+        ? "Thanks for reaching out. Your message has been sent."
+        : (payload.error || "Please email Alessia directly.");
+    const html = "<!doctype html><html lang=\"en\"><meta charset=\"utf-8\">" +
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">" +
+        "<title>" + heading + "</title><body style=\"font:16px/1.6 system-ui,sans-serif;" +
+        "max-width:42rem;margin:4rem auto;padding:0 1rem;color:#26231f\"><main><h1>" +
+        heading + "</h1><p>" + escapeHtml(message) +
+        "</p><p><a href=\"/html/contact.html\">Return to the contact page</a></p>" +
+        "</main></body></html>";
+    res.status(statusCode).setHeader("Content-Type", "text/html; charset=utf-8");
+    return res.end(html);
+}
+
 function respond(req, res, statusCode, payload) {
     const acceptsJson = String(req.headers.accept || "").includes("application/json");
 
@@ -57,8 +85,7 @@ function respond(req, res, statusCode, payload) {
         return sendJson(res, statusCode, payload);
     }
 
-    res.status(303).setHeader("Location", `/html/contact.html?sent=${statusCode >= 200 && statusCode < 300 ? "1" : "0"}`);
-    return res.end();
+    return sendPage(res, statusCode, payload);
 }
 
 module.exports = async function contact(req, res) {
