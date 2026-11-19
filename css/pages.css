@@ -447,13 +447,15 @@ body:has(#contact-page-form) .form-status {
 }
 
 body:has(#contact-page-form) .form-status.is-success {
-    color: #B9D6B3;
-    background: rgba(185, 214, 179, 0.08);
+    color: #24311F;
+    background: #DDE8D5;
+    border-color: #718864;
 }
 
 body:has(#contact-page-form) .form-status.is-error {
-    color: #F0B8A8;
-    background: rgba(240, 184, 168, 0.08);
+    color: #742E24;
+    background: #F2DDD6;
+    border-color: #A85D4D;
 }
 
 body:has(#contact-page-form) .field[aria-invalid="true"] .field-error,
