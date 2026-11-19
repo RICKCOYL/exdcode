@@ -1,8 +1,12 @@
 const MAX_BODY_BYTES = 12 * 1024;
 
 function reply(res, status, payload) {
-  res.status(status).setHeader("Content-Type", "application/json; charset=utf-8");
-  res.end(JSON.stringify(payload));
+  const heading = payload.ok ? "Message sent" : "Message not sent";
+  const message = payload.ok
+    ? "Thanks for reaching out. Your message has been sent."
+    : (payload.error || "Please email Alessia directly.");
+  res.status(status).setHeader("Content-Type", "text/html; charset=utf-8");
+  res.end("<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>" + heading + "</title><body style=\"font:16px/1.6 system-ui,sans-serif;max-width:42rem;margin:4rem auto;padding:0 1rem;color:#26231f\"><main><h1>" + heading + "</h1><p>" + message + "</p><p><a href=\"/html/contact.html\">Return to the contact page</a></p></main></body></html>");
 }
 
 function bodyOf(req) {
@@ -17,7 +21,7 @@ function bodyOf(req) {
   return null;
 }
 
-function text(value, limit) {
+function clean(value, limit) {
   return String(value || "").replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, limit);
 }
 
@@ -35,11 +39,11 @@ module.exports = async function contact(req, res) {
   if (Number(req.headers["content-length"] || 0) > MAX_BODY_BYTES) return reply(res, 413, { ok: false, error: "The message is too large." });
   const body = bodyOf(req);
   if (!body || typeof body !== "object") return reply(res, 400, { ok: false, error: "Please check the form and try again." });
-  if (text(body.website, 200)) return reply(res, 200, { ok: true });
+  if (clean(body.website, 200)) return reply(res, 200, { ok: true });
 
-  const name = text(body.name, 120);
-  const email = text(body.email, 254);
-  const message = text(body.message, 5000);
+  const name = clean(body.name, 120);
+  const email = clean(body.email, 254);
+  const message = clean(body.message, 5000);
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || message.length < 10) return reply(res, 400, { ok: false, error: "Enter a valid email and a message of at least 10 characters." });
   if (!process.env.RESEND_API_KEY || !process.env.CONTACT_FROM || !process.env.CONTACT_TO) {
     console.error("Contact form email configuration is incomplete.");
