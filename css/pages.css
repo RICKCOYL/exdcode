@@ -447,9 +447,9 @@ body:has(#contact-page-form) .form-status {
 }
 
 body:has(#contact-page-form) .form-status.is-success {
-    color: #24311F;
-    background: #DDE8D5;
-    border-color: #718864;
+    color: #252B1C;
+    background: #F5ECDD;
+    border-color: #8A8E7B;
 }
 
 body:has(#contact-page-form) .form-status.is-error {
