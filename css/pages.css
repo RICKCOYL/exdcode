@@ -385,6 +385,14 @@ body:has(#contact-page-form) .field {
     margin-bottom: 25px;
 }
 
+body:has(#contact-page-form) .form-trap {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 body:has(#contact-page-form) .field label {
     font-size: 15px;
     font-weight: 700;

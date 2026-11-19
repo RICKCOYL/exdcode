@@ -17,15 +17,6 @@
 </head>
 <body>
 
-<!-- =======================================================================
-     TO FILL IN — placeholders are marked with [square brackets].
-
-     The form does not send anywhere yet. A static site has no server, so
-     it needs a form endpoint. Put yours in the form's `action` below
-     (Formspree, Vercel Forms, Netlify Forms all work). Until you do, the
-     page tells visitors to email you instead of pretending to send.
-     ======================================================================= -->
-
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="header">
@@ -97,8 +88,12 @@
                 reply will be.
             </p>
 
-            <!-- Replace action="" with your form endpoint to make this send. -->
-            <form id="contact-page-form" method="POST" action="" novalidate>
+            <form id="contact-page-form" method="POST" action="/api/contact" novalidate>
+
+                <div class="field form-trap" aria-hidden="true">
+                    <label for="cp-website">Leave this field empty</label>
+                    <input type="text" id="cp-website" name="website" tabindex="-1" autocomplete="off">
+                </div>
 
                 <div class="field">
                     <label for="cp-name">Name <span class="optional">(optional)</span></label>
@@ -130,7 +125,7 @@
 
                 <button type="submit" class="btn btn-primary">Send message</button>
 
-                <p class="form-status" id="cp-status" role="status" aria-live="polite"></p>
+                <p class="form-status" id="cp-status" role="status" aria-live="polite" tabindex="-1"></p>
             </form>
         </div>
 

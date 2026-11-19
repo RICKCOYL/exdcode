@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    form.addEventListener('submit', function (event) {
+    form.addEventListener('submit', async function (event) {
         const firstInvalid = fields.find(function (field) {
             return !field.checkValidity();
         });
@@ -76,25 +76,45 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        /* No endpoint configured yet. Say so plainly rather than accepting a
-           message that would go nowhere — a visitor who thinks they have
-           reached out and hasn't is worse than no form at all. */
-        if (!form.getAttribute('action')) {
-            event.preventDefault();
-            status.textContent =
-                'This form is not connected yet. Please email me directly ' +
-                'using the address on the left, and I will reply from there.';
-            status.focus();
-            return;
-        }
-
-        /* Valid and wired up: let the browser post it, but stop a second
-           click from sending the message twice. */
+        event.preventDefault();
         const submitButton = form.querySelector('button[type="submit"]');
 
         if (submitButton) {
             submitButton.disabled = true;
             submitButton.textContent = 'Sending…';
         }
+
+        status.textContent = '';
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(Object.fromEntries(new FormData(form)))
+            });
+            const result = await response.json();
+
+            if (!response.ok || !result.ok) {
+                throw new Error(result.error || 'The message could not be sent.');
+            }
+
+            status.textContent = 'Thanks for reaching out. Your message has been sent.';
+            form.reset();
+            if (submitButton) {
+                submitButton.textContent = 'Message sent';
+            }
+        } catch (error) {
+            status.textContent = error.message ||
+                'The message could not be sent. Please try again or email me directly.';
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send message';
+            }
+        }
+
+        status.focus();
     });
 });
